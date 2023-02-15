@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.head-main > p {
+  color: #eb2929;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+.main-Image {
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  margin-right: 16px;
+}
+.filter-body {
+  position: absolute;
+  z-index: +100;
+}

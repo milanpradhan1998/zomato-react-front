@@ -56,7 +56,7 @@ export default function Restaurant() {
   let [restDetail, setRestDetaul] = useState({ ...defaultRestData });
   let [totalPrice, setTotalPrice] = useState(0);
   let getRestaurantDetailsById = async () => {
-    let url = "http://www.digiroot.in:8800/api/get-restaurant-list/" + _id;
+    let url = "http://localhost:8800/api/get-restaurant-list/" + _id;
     let { data } = await axios.get(url);
     console.log(data);
     if (data.status == true) {
@@ -68,7 +68,7 @@ export default function Restaurant() {
   let [menuList, setMenuList] = useState([]);
   let getMenuItem = async () => {
     console.log("menu item click");
-    let url = "http://www.digiroot.in:8800/api/get-menu-items/" + _id;
+    let url = "http://localhost:8800/api/get-menu-items/" + _id;
     let { data } = await axios.get(url);
     console.log(data.restaurant);
     if (data.status === true) {
@@ -94,7 +94,7 @@ export default function Restaurant() {
   let makePayment = async () => {
     let userOrder = menuList.filter((menu) => menu.qty > 0);
 
-    let url = "http://www.digiroot.in:8800/api/gen-order-id";
+    let url = "http://localhost:8800/api/gen-order-id";
     let { data } = await axios.post(url, { amount: totalPrice });
     if (data.status === false) {
       alert("unable to generate order");
@@ -124,7 +124,7 @@ export default function Restaurant() {
           totalAmount: totalPrice,
         };
         let { data } = await axios.post(
-          "http://www.digiroot.in:8800/api/verify-payment",
+          "http://localhost:8800/api/verify-payment",
           verifyPayment
         );
         if (data.status === true) {

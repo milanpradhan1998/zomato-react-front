@@ -10,7 +10,7 @@ function MainHeader() {
   let [restaurantInput, setRestaurantInput] = useState("");
   let [searchResult, setSearchReasult] = useState([]);
   let getLocationListFromServer = async () => {
-    let url = "http://www.digiroot.in:8800/api/get-location-list";
+    let url = "http://localhost:8800/api/get-location-list";
     let { data } = await axios.get(url);
     setLocationList([...data.location]);
   };
@@ -22,13 +22,13 @@ function MainHeader() {
     let { value } = e.target;
     setRestaurantInput(value);
     if (value != "") {
-      let url = "http://www.digiroot.in:8800/api/search-restaurant";
+      let url = "http://localhost:8800/api/search-restaurant";
       let { data } = await axios.post(url, {
         search: value,
         loc_id: locationId,
       });
-      setSearchReasult(data.restaurant);
-      console.log(searchResult);
+      setSearchReasult([...data.restaurant]);
+      console.log(data.restaurant);
     } else {
       setSearchReasult([]);
     }

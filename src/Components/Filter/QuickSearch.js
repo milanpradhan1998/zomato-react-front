@@ -15,12 +15,12 @@ function QuickSearch() {
     mealtype_id: meal_id,
   });
   let getLocationListFromServer = async () => {
-    let url = "http://www.digiroot.in:8800/api/get-location-list";
+    let url = "http://localhost:8800/api/get-location-list";
     let { data } = await axios.get(url);
     setLocationList([...data.location]);
   };
   let filter = async () => {
-    let url = "http://www.digiroot.in:8800/api/filter";
+    let url = "http://localhost:8800/api/filter";
 
     let { data } = await axios.post(url, filterData);
     if (data.status === true) {

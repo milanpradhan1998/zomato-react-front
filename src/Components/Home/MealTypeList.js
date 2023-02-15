@@ -7,7 +7,7 @@ function MealTypeList() {
 
   let [mealList, setMealTypeList] = useState([]);
   let getMenuListFromServer = async () => {
-    let url = "http://www.digiroot.in:8800/api/get-meal-type-list";
+    let url = "http://localhost:8800/api/get-meal-type-list";
     let { data } = await axios.get(url);
     setMealTypeList([...data.mealTypes]);
   };
